@@ -1,0 +1,13 @@
+ <IfModule mod_rewrite.c>
+    # Turn on URL rewriting
+    RewriteEngine On
+    RewriteBase /localhost/codeigniter/
+
+    # Allow any files or directories that exist to be displayed directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Allow execution of any php files directly
+    RewriteCond $1 !\.php$
+    # Redirect any other url to index.php
+    RewriteRule ^(.*)$ /index.php/$1 [L]
+</IfModule>  
